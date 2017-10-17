@@ -20,3 +20,18 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+# 忽略 Eclipse 生成的项目文件和配置信息（团队规范：Java IDE 使用 IDEA）
+**/.project
+**/.classpath
+**/.settings/
+**/bin/
+
+# 忽略 IDEA 的项目配置信息及输出文件
+**/.idea/
+**/target/
+
+*.iml
+
+**/error.log
+**/info.log
+
