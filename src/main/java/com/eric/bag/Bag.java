@@ -45,9 +45,12 @@ public class Bag<T> implements Iterable<T> {
      * 往背包中添加一个元素
      */
     public void add(T item) {
+        //现将附初始化元素放入一个容器
         Node<T> oldfirst = first;
+//        新建一个节点
         first = new Node<T>();
         first.item = item;
+//        简历顺序关系
         first.next = oldfirst;
         n++;
     }
