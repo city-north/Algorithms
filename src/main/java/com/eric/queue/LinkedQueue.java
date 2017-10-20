@@ -6,10 +6,10 @@ import com.eric.stdOut.StdOut;
 import java.util.Iterator;
 
 /**
- * 先进先出队列
+ * 先进先出队列(链表实现)
  * @author Chen 2017/10/19
  */
-public class Queue<T> implements Iterable<T>{
+public class LinkedQueue<T> implements Iterable<T>{
     private Node<T> first;  //队列第一个元素
     private Node<T> last;   //队列最后一个元素
     private int count;      //总元素数
@@ -26,7 +26,7 @@ public class Queue<T> implements Iterable<T>{
     /**
      * 初始化一个队列
      */
-    public Queue(){
+    public LinkedQueue(){
         first = null;
         last = null;
         count = 0;
@@ -74,7 +74,7 @@ public class Queue<T> implements Iterable<T>{
      *出队列
      */
     public T dequeue(){
-        if(isEmpty()) throw new UnsupportedOperationException("Queue underflow");
+        if(isEmpty()) throw new UnsupportedOperationException("LinkedQueue underflow");
         T item = first.item;
         first = first.next;
         count--;
@@ -144,19 +144,19 @@ public class Queue<T> implements Iterable<T>{
     }
 
     public static void main(String[] args) {
-        Queue<String> queue = new Queue<String>();
+        LinkedQueue<String> linkedQueue = new LinkedQueue<String>();
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             if(item.equals("!END")){
-                System.out.println(queue.toString());
+                System.out.println(linkedQueue.toString());
                 break;
             }
             if (!item.equals("-"))
-                queue.enqueue(item);
-            else if (!queue.isEmpty())
-                StdOut.print(queue.dequeue() + " ");
+                linkedQueue.enqueue(item);
+            else if (!linkedQueue.isEmpty())
+                StdOut.print(linkedQueue.dequeue() + " ");
         }
-        StdOut.println("(" + queue.size() + " left on queue)");
+        StdOut.println("(" + linkedQueue.size() + " left on linkedQueue)");
     }
 
 }
