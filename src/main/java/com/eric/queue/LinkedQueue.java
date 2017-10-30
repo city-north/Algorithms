@@ -136,7 +136,6 @@ public class LinkedQueue<T> implements Iterable<T>{
     /**
      * 内部类
      * 节点类 用来连接各节点，表示节点间的关系
-     * @param <T>
      */
     private static class Node<T> {
         private T item;

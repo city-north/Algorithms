@@ -96,7 +96,7 @@ public class ResizingArrayQueue<T> implements Iterable<T> {
             return item;
         }
     }
-    
+
     public static void main(String[] args) {
         ResizingArrayQueue<String> queue = new ResizingArrayQueue<String>();
         while (!StdIn.isEmpty()) {
