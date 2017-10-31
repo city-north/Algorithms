@@ -1,6 +1,5 @@
 package com.eric.sort;
 
-import com.eric.stdIn.StdIn;
 import com.eric.stdOut.StdOut;
 
 import java.util.Comparator;
@@ -21,7 +20,7 @@ public class Selection {
         int n = a.length;
         for(int i = 0;i < n; i++){
             int min = i;
-            for(int j = i + 1; j < n ; i++){
+            for(int j = i + 1; j < n ; j++){
                 if(less(a[j],a[min]))
                     min = j;
             }
@@ -102,8 +101,10 @@ public class Selection {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
+        String[] a = {"S","O","R","T","E","X","A","M","P","L","E"};
         Selection.sort(a);
-        show(a);
+        for (int i = 0; i < a.length; i++) {
+            System.out.println(a[i]);
+        }
     }
 }
