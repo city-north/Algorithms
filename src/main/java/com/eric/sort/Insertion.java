@@ -1,6 +1,8 @@
 package com.eric.sort;
 
 
+import sun.security.util.Length;
+
 import java.util.Comparator;
 
 /**
@@ -23,13 +25,13 @@ public class Insertion {
         }
     }
 
-    public static void insertSort(int[] array){
 
+    public static void insertSort(int[] array){
         for(int i = 1;i<array.length;i++){
             if(array[i] < array[i-1]){//0~i-1位为有序，若第i位小于i-1位，继续寻位并插入，否则认为0~i位也是有序的，忽略此次
-                int temp = array[i];
+                int temp = array[i];  //将第I位元素放入临时变量
                 int k = i - 1;
-                for(int j = k;j >= 0 && temp< array[j];j--){
+                for(int j = k;j >= 0 && temp< array[j];j--){//从第i-1位向前遍历并移位，直至找到小于第i位值停止
                     array[j+1] = array[j];
                     k--;
                 }
@@ -37,6 +39,27 @@ public class Insertion {
             }
         }
     }
+    public static void myInsertSort(int[] array){
+
+        for(int i = 1;i<array.length;i++){
+            if(array[i]<array[i-1]) {//0~i-1位为有序，若第i位小于i-1位，继续寻位并插入，否则认为0~i位也是有序的，忽略此次
+                //将第I位元素放入临时变量
+                int k = i-1;
+                int temp= array[i];
+                //从第i-1位向前遍历并移位，直至找到小于第i位值停止
+                for(int j = k;j >= 0 && temp < array[j];j--){
+                    array[j+1] = array[j];
+                    k--;
+                }
+                array[k+1] = temp;
+            }
+        }
+
+
+    }
+
+
+
 
     public static void printArray(int[] array) {
         System.out.println("--------------------");
@@ -73,9 +96,9 @@ public class Insertion {
 //        for (int i = 0; i < a.length; i++) {
 //            System.out.println(a[i]);
 //        }
-
+//
         int[] a = {5,3,4,6,2};
-        insertSort(a);
+        myInsertSort(a);
         printArray(a);
     }
 }
