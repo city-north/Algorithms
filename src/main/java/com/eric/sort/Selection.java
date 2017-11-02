@@ -101,7 +101,7 @@ public class Selection {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = {"S","O","R","T","E","X","A","M","P","L","E"};
+        String[] a = {"7","4","9","8","2","9","9","8","7"};
         Selection.sort(a);
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);

@@ -55,7 +55,6 @@ public class Insertion {
             }
         }
 
-
     }
 
 
@@ -97,7 +96,7 @@ public class Insertion {
 //            System.out.println(a[i]);
 //        }
 //
-        int[] a = {5,3,4,6,2};
+        int[] a = {7,4,9,8,2,9,9,8,7};
         myInsertSort(a);
         printArray(a);
     }
