@@ -2,6 +2,7 @@ package com.eric.sort;
 
 import com.eric.stdOut.StdOut;
 
+import javax.xml.transform.Templates;
 import java.util.Comparator;
 
 /**
@@ -101,10 +102,94 @@ public class Selection {
      * @param args the command-line arguments
      */
     public static void main(String[] args) {
-        String[] a = {"7","4","9","8","2","9","9","8","7"};
-        Selection.sort(a);
+//        String[] a = {"7","4","9","8","2","9","9","8","7"};
+//        Selection.sort(a);
+//        for (int i = 0; i < a.length; i++) {
+//            System.out.println(a[i]);
+//        }
+
+
+        int [] a= {1,8,0,1,4,9,3,4,6,0,5};
+        selectSort(a);
         for (int i = 0; i < a.length; i++) {
             System.out.println(a[i]);
         }
     }
+
+//
+//    public static void selectSort(int[] a){
+//        int minIndex = 0;
+//        int temp=0;
+//        if((a==null)||(a.length ==0)){
+//            return ;//判断输入的数据是否合法
+//        }
+//        for(int i= 0;i<a.length;i++){
+//            minIndex = i;//最小数据数组下标
+//            for(int j = i+1;j<a.length;j++){
+//                if(a[j]<a[minIndex]){
+//                    minIndex = j;
+//                }
+//            }
+//            if(minIndex !=i){
+//                temp = a[i];
+//                a[i] = a[minIndex];
+//                a[minIndex] = temp;
+//            }
+//        }
+//    }
+
+
+    public static void selectSort(int[] a){
+        if(a ==null || a.length ==0) return;
+        int minIndex = 0;
+        int temp = 0;
+        for(int i = 0;i<a.length;i++){
+            minIndex = i;
+            for(int j = i+1;j<a.length;j++){
+                if(a[j]<a[minIndex]){
+                    minIndex = j;
+                }
+            }
+            if(i !=minIndex){
+                temp = a[i];
+                a[i]= a[minIndex];
+                a[minIndex] = temp;
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

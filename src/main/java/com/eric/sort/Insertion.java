@@ -3,6 +3,7 @@ package com.eric.sort;
 
 import sun.security.util.Length;
 
+import java.text.ParseException;
 import java.util.Comparator;
 
 /**
@@ -39,23 +40,72 @@ public class Insertion {
             }
         }
     }
-    public static void myInsertSort(int[] array){
-
-        for(int i = 1;i<array.length;i++){
-            if(array[i]<array[i-1]) {//0~i-1位为有序，若第i位小于i-1位，继续寻位并插入，否则认为0~i位也是有序的，忽略此次
-                //将第I位元素放入临时变量
-                int k = i-1;
-                int temp= array[i];
-                //从第i-1位向前遍历并移位，直至找到小于第i位值停止
-                for(int j = k;j >= 0 && temp < array[j];j--){
-                    array[j+1] = array[j];
-                    k--;
+    public static void myInsertSort(int[] a){
+        if(a ==null || a.length ==0) return;
+        for(int i = 1; i< a.length ;i++){
+            if(a[i] < a[i-1]){
+                int move = i-1;
+                int temp = a[i];
+                for(int j= move;j>=0 && a[j]>temp;j--){
+                    a[j+1] = a[j];
+                    move--;
                 }
-                array[k+1] = temp;
+              a[move+1]=temp;
             }
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
+//    public static void myInsertSort(int[] a){
+//        if(a==null ||a.length ==0) return;
+//        for(int i=1;i<a.length ;i++){
+//            if(a[i]<a[i-1]){
+//                int moveIndex = i-1; //最多挪动的位置
+//                int temp = a[i];
+//                for (int j=moveIndex;j>=0 && temp<a[j];j--){
+//                    a[j+1]=a[j];
+//                    moveIndex--;
+//                }
+//                a[moveIndex+1] = temp;
+//            }
+//        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -96,7 +146,8 @@ public class Insertion {
 //            System.out.println(a[i]);
 //        }
 //
-        int[] a = {7,4,9,8,2,9,9,8,7};
+//        int[] a = {7,4,9,8,2,9,9,8,7};
+        int[] a = {7,5,3,9,5,1,8,5,2,4,5,6};
         myInsertSort(a);
         printArray(a);
     }
