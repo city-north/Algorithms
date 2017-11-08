@@ -12,6 +12,7 @@ public class Shell {
     private Shell(){}
 
 
+
     public static void sort(Comparable[] a){
         int n = a.length;       //数组的长度
         int h = 1;
