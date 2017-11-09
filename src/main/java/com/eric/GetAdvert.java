@@ -1,5 +1,7 @@
 package com.eric;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,8 +12,8 @@ public class GetAdvert {
 
 
     public static void main(String[] args) {
-        for(int i=1;i<=100;i++){
-            test(i,45,3,20);
+        for(int i=1;i<=100000;i++){
+            test(i,10,3,5);
         }
     }
     public static void test(Integer pageNum,Integer pageSize,int gap,int listSize){
@@ -26,7 +28,7 @@ public class GetAdvert {
         System.out.println("每页"+addSize+"条广告");
         int startIndex = (pageNum - 1) * addSize;
         int endIndex =  pageNum * addSize;
-        List<advert> showAdd =new ArrayList<advert>();
+        List<advert> showAdd;
         int advertSize = adverts.size();
         if(endIndex>advertSize&&startIndex>advertSize){
             //开始大于广告数组长度，结束大于广告数组长度
@@ -38,10 +40,6 @@ public class GetAdvert {
             }else {
                 showAdd = adverts.subList(startIndex,endIndex);
             }
-        }else if(!(endIndex>advertSize)&&startIndex>advertSize){
-            startIndex = startIndex%advertSize;
-            showAdd = adverts.subList(startIndex,advertSize);
-            showAdd.addAll(adverts.subList(0, endIndex));
         }else if(endIndex>advertSize&&!(startIndex>advertSize)){
             endIndex = endIndex%advertSize;
             showAdd = adverts.subList(startIndex,advertSize);
@@ -52,5 +50,24 @@ public class GetAdvert {
         System.out.println("第"+pageNum+"页");
         System.out.println(showAdd);
     }
+    @Test
+    public void text(){
+        boolean b = returnTest();
+        System.out.println(b);
+    }
+    public boolean returnTest()
+    {
+        try
+        {
+            return true;
+        }
+        catch (Exception e)
+        {
 
+        }
+        finally
+        {
+            return false;
+        }
+    }
 }
