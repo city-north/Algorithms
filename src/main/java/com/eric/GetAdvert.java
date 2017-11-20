@@ -12,8 +12,8 @@ public class GetAdvert {
 
 
     public static void main(String[] args) {
-        for(int i=1;i<=100000;i++){
-            test(i,10,3,5);
+        for(int i=1;i<=100;i++){
+            test(i,4,0,5);
         }
     }
     public static void test(Integer pageNum,Integer pageSize,int gap,int listSize){
@@ -24,14 +24,14 @@ public class GetAdvert {
             advert.setUrl("第"+(i)+"条广告");
             adverts.add(advert);
         }
-        int addSize = pageSize/gap; //每页AddSize条广告
-        System.out.println("每页"+addSize+"条广告");
+//        int addSize = pageSize/gap; //每页AddSize条广告
+        int addSize = pageSize;
         int startIndex = (pageNum - 1) * addSize;
         int endIndex =  pageNum * addSize;
         List<advert> showAdd;
         int advertSize = adverts.size();
         if(endIndex>advertSize&&startIndex>advertSize){
-            //开始大于广告数组长度，结束大于广告数组长度
+            //开始、结束时间都超过
             endIndex = endIndex%advertSize;
             startIndex = startIndex%advertSize;
             if(startIndex > endIndex){  //开始大于结束
@@ -41,10 +41,12 @@ public class GetAdvert {
                 showAdd = adverts.subList(startIndex,endIndex);
             }
         }else if(endIndex>advertSize&&!(startIndex>advertSize)){
+            //结束时间超过，开始时间未超过
             endIndex = endIndex%advertSize;
             showAdd = adverts.subList(startIndex,advertSize);
             showAdd.addAll(adverts.subList(0, endIndex));
         }else {
+            //开始时间和结束时间都未超过
             showAdd = adverts.subList(startIndex,endIndex);
         }
         System.out.println("第"+pageNum+"页");

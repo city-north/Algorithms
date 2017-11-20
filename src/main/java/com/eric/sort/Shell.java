@@ -62,11 +62,11 @@ public class Shell {
 
     }
     public static void main(String[] args) {
-//        String[] a = {"7","4","9","8","2","9","9","8","7"};
-//        Shell.sort(a);
-//        show(a);
-        int a[] = {1,4,7,8,5,2,3,6,9,};
-        shellSort(a);
-        System.out.println(Arrays.toString(a));
+        String[] a = {"7","5","3","2","8","9","1","6","4","8","9","4","3","9","8"};
+        Shell.sort(a);
+        show(a);
+//        int a[] = {1,4,7,8,5,2,3,6,9,};
+//        shellSort(a);
+//        System.out.println(Arrays.toString(a));
     }
 }
